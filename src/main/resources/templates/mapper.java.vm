@@ -20,5 +20,5 @@ public interface ${className}Mapper{
 
     int updateByPrimaryKey(${className} ${className});
 
-    List<${className}> list();
+    List<${className}> listAll();
 }

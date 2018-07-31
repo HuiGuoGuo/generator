@@ -83,7 +83,7 @@
 #end
     where ${pk.columnName} = #{${pk.property},jdbcType=${pk.dataType}}
   </update>
-    <select id="className" resultMap="BaseResultMap">
+    <select id="listAll" resultMap="BaseResultMap">
         select <include refid="Base_Column_List"/>
         from ${tableName}
     </select>

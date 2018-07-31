@@ -31,8 +31,8 @@ public class ${className}ServiceImpl implements ${className}Service{
         return ${classname}Mapper.selectByPrimaryKey(${pk.property});
     }
     @Override
-    public List<${className}> listAll(){
-        return ${classname}Mapper.list();
+    public List<${className}> list(){
+        return ${classname}Mapper.listAll();
     }
 
 }

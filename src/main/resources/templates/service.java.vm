@@ -12,5 +12,5 @@ public interface ${className}Service{
 
     ${className} select(${pk.javaType} ${pk.property});
 
-    List<${className}> listAll();
+    List<${className}> list();
 }
