@@ -15,6 +15,8 @@ public class Query extends LinkedHashMap<String, Object> {
 
     private Integer pageSize;
 
+    public Query(){}
+
     public Query(ListTableRequestDTO requestDTO) {
         this.put("tableName", requestDTO.getTableName());
         this.page = requestDTO.getPage() ;

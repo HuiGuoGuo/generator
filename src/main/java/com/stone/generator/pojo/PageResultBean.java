@@ -1,6 +1,5 @@
 package com.stone.generator.pojo;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
