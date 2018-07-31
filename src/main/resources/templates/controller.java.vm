@@ -1,6 +1,8 @@
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 import ${packageName}.${moduleName}.entity.${className};
+import ${packageName}.${moduleName}.service.${className}Service;
 
 @RestController
 @RequestMapping(value = "/${classname}")

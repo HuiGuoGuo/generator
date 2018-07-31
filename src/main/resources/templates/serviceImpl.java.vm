@@ -5,9 +5,10 @@ import ${packageName}.${moduleName}.service.${className}Service;
 import ${packageName}.${moduleName}.mapper.${className}Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service(value = "${classname}Service")
-public ${className}ServiceImpl implements ${className}Service{
+public class ${className}ServiceImpl implements ${className}Service{
 
     @Autowired
     private ${className}Mapper ${classname}Mapper;
@@ -15,7 +16,7 @@ public ${className}ServiceImpl implements ${className}Service{
     @Override
     public ${pk.javaType} insert(${className} ${classname}){
         ${classname}Mapper.insert(${classname});
-        return ${className}.get${pk.propertyUp}();
+        return ${classname}.get${pk.propertyUp}();
     }
     @Override
     public int delete(${pk.javaType} ${pk.property}){
