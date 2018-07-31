@@ -51,8 +51,8 @@ public class SysGeneratorController {
         byte[] data = sysGeneratorService.download(query);
         @Cleanup OutputStream outputStream = response.getOutputStream();
         response.reset();
-        response.setHeader("Content-Disposition", String.format("attachment; filename=%s.zip", System.currentTimeMillis()));
-        response.addHeader("Content-Length", "" + data.length);
+        response.setHeader("Content-Disposition", String.format("attachment; filename=%s.zip", tableName));
+        response.addHeader("Content-Length", String.format("%s", data.length));
         response.setContentType("application/octet-stream; charset=UTF-8");
         IOUtils.write(data, outputStream);
     }

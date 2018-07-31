@@ -1,0 +1,16 @@
+package ${packageName}.${moduleName}.service;
+import java.util.List;
+import ${packageName}.${moduleName}.entity.${className};
+
+public interface ${className}Service{
+
+    ${pk.javaType} insert(${className} ${classname});
+
+    int delete(${pk.javaType} ${pk.property});
+
+    int update(${className} ${classname});
+
+    ${className} select(${pk.javaType} ${pk.property});
+
+    List<${className}> listAll();
+}

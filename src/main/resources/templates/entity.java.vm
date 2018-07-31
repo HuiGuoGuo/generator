@@ -1,0 +1,38 @@
+package ${packageName}.${moduleName}.entity;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Table(name = "${tableName}")
+public class ${className}Entity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    #foreach($column in $columns)
+
+        /**
+         *  ${column.columnComment}
+         */
+        #if($column.columnName==$pk.columnName)
+        @Id
+        #end
+        private ${column.javaType} ${column.property};
+    #end
+
+    #foreach($column in $columns)
+        /**
+        * setter ${column.columnComment}
+        */
+        public void set${column.propertyUp}(${column.javaType} ${column.property}) {
+            this.${column.property} = ${column.property};
+        }
+
+        /**
+        * getter ${column.columnComment}
+        */
+        public ${column.javaType} get${column.propertyUp}() {
+            return this.${column.property};
+        }
+    #end
+
+}

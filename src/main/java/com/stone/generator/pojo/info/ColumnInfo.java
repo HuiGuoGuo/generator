@@ -1,11 +1,13 @@
 package com.stone.generator.pojo.info;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * Created by Stone on 2018/7/30.
  */
 @Data
+@Accessors(chain = true)
 public class ColumnInfo {
     /**
      * 字段名称

@@ -1,0 +1,39 @@
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import ${packageName}.${moduleName}.entity.${className};
+
+@RestController
+@RequestMapping(value = "/${classname}")
+public class ${className}Controller{
+
+    @Autowired
+    private ${className}Service ${classname}Service;
+
+    @PostMapping(value = "/")
+    public ${pk.javaType} insert(${className} ${classname}){
+        return ${classname}Service.insert(${classname});
+    }
+
+    @DeleteMapping(value = "/{${pk.property}}")
+    public int delete(@PathVariable("${pk.property}") ${pk.javaType} ${pk.property}){
+        return ${classname}Service.delete(${pk.property});
+    }
+
+    @PutMapping(value = "/{${pk.property}}")
+    public int update(@PathVariable("${pk.property}") ${pk.javaType} ${pk.property},${className} ${classname}){
+        ${classname}.set${pk.propertyUp}(${pk.property});
+        return ${classname}Service.update(${classname});
+    }
+
+    @GetMapping(value = "/{${pk.property}}")
+    public ${className} select(@PathVariable("${pk.property}") ${pk.javaType} ${pk.property}){
+        return ${classname}Service.select(${pk.property});
+    }
+
+    @GetMapping(value = "/list")
+    public List<${className}> listAll(){
+        return ${classname}Service.listAll();
+    }
+
+
+}

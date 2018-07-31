@@ -1,0 +1,24 @@
+package ${packageName}.${moduleName}.mapper;
+
+import ${packageName}.${moduleName}.entity.${className};
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+
+@Repository
+public interface ${className}Mapper{
+
+    int deleteByPrimaryKey(${pk.javaType} ${pk.property});
+
+    ${pk.javaType} insert(${className} ${className});
+
+    ${pk.javaType} insertSelective(${className} ${className});
+
+    ${className} selectByPrimaryKey(${pk.javaType} ${pk.property});
+
+    int updateByPrimaryKeySelective(${className} ${className});
+
+    int updateByPrimaryKey(${className} ${className});
+
+    List<${className}> list();
+}

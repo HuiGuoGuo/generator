@@ -1,0 +1,37 @@
+package ${packageName}.${moduleName}.service.impl;
+
+import ${packageName}.${moduleName}.entity.${className};
+import ${packageName}.${moduleName}.service.${className}Service;
+import ${packageName}.${moduleName}.mapper.${className}Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service(value = "${classname}Service")
+public ${className}ServiceImpl implements ${className}Service{
+
+    @Autowired
+    private ${className}Mapper ${classname}Mapper;
+
+    @Override
+    public ${pk.javaType} insert(${className} ${classname}){
+        ${classname}Mapper.insert(${classname});
+        return ${className}.get${pk.propertyUp}();
+    }
+    @Override
+    public int delete(${pk.javaType} ${pk.property}){
+        return ${classname}Mapper.deleteByPrimaryKey(${pk.property});
+    }
+    @Override
+    public int update(${className} ${classname}){
+        return ${classname}Mapper.updateByPrimaryKeySelective(${classname});
+    }
+    @Override
+    public ${className} select(${pk.javaType} ${pk.property}){
+        return ${classname}Mapper.selectByPrimaryKey(${pk.property});
+    }
+    @Override
+    public List<${className}> listAll(){
+        return ${classname}Mapper.list();
+    }
+
+}
