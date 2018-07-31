@@ -6,7 +6,7 @@ $(function () {
         url: '/sys/generator/listTable',
         data: {
             'page': 1,
-            'pageSize': 20
+            'pageSize': 12
         },
         dataType: 'json',
         async: false,
