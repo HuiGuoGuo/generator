@@ -1,4 +1,4 @@
-package com.stone.generator;
+package com.stone.generator.util;
 
 import com.google.common.base.CaseFormat;
 import com.google.common.base.Charsets;
@@ -20,7 +20,7 @@ import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import static com.stone.generator.JDBCTypesUtils.getJdbcCode;
+import static com.stone.generator.util.JDBCTypesUtils.getJdbcCode;
 
 /**
  * Created by Stone on 2018/7/30.

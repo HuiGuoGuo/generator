@@ -1,6 +1,6 @@
 package com.stone.generator.service;
 
-import com.stone.generator.GeneratorUtil;
+import com.stone.generator.util.GeneratorUtil;
 import com.stone.generator.config.GeneratorConfig;
 import com.stone.generator.dao.SysGeneratorDao;
 import com.stone.generator.pojo.ResultBean;

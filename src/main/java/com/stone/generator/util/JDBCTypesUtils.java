@@ -1,4 +1,4 @@
-package com.stone.generator;
+package com.stone.generator.util;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
