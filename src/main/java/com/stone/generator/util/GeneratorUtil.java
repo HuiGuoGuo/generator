@@ -12,7 +12,6 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.springframework.beans.BeanUtils;
 
-import javax.validation.constraints.NotEmpty;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -47,8 +46,8 @@ public final class GeneratorUtil {
         String className = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, tableName);
         String classname = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
         List<ColumnInfo> columnInfos = parseColumnInfo(columnInfoList, pk);
-        @NotEmpty String packageName = config.getPackageName();
-        @NotEmpty String moduleName = config.getModuleName();
+        String packageName = config.getPackageName();
+        String moduleName = config.getModuleName();
         //封装参数,表信息
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("packageName", packageName);
