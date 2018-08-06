@@ -1,5 +1,6 @@
 package com.stone.generator.control;
 
+import com.stone.generator.pojo.request.GeneratorRequestDTO;
 import com.stone.generator.service.SysGeneratorService;
 import com.stone.generator.pojo.Query;
 import com.stone.generator.pojo.ResultBean;
@@ -45,9 +46,11 @@ public class SysGeneratorController {
 
     @SneakyThrows
     @GetMapping(value = "/{tableName}")
-    public void download(@PathVariable("tableName") String tableName, HttpServletResponse response) {
+    public void download(@PathVariable("tableName") String tableName, GeneratorRequestDTO requestDTO, HttpServletResponse response) {
         Query query = new Query();
         query.put("tableName", tableName);
+        query.put("packageName",requestDTO.getPackageName());
+        query.put("moduleName",requestDTO.getModuleName());
         byte[] data = sysGeneratorService.download(query);
         @Cleanup OutputStream outputStream = response.getOutputStream();
         response.reset();

@@ -50,7 +50,7 @@ public class SysGeneratorService {
         TableVO tableVO = sysGeneratorDao.queryTable(paramMap);
         //查询表列信息
         List<ColumnInfo> columnInfoList = sysGeneratorDao.queryColumns(paramMap);
-        GeneratorUtil.generatorCode(tableVO,columnInfoList,config,zip);
+        GeneratorUtil.generatorCode(tableVO,columnInfoList,paramMap,zip);
         IOUtils.closeQuietly(zip);
         return outputStream.toByteArray();
     }

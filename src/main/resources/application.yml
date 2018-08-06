@@ -30,5 +30,4 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/**/*.xml
 logging:
-  level:
-    com.stone.generator.dao: debug
+  config: classpath:logback.xml

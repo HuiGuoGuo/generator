@@ -29,25 +29,25 @@ public final class GeneratorUtil {
 
     public static List<String> initTemplate() {
         List<String> templates = new ArrayList<>(6);
-        templates.add("/templates/controller.java.vm" );
-        templates.add("/templates/service.java.vm" );
-        templates.add("/templates/serviceImpl.java.vm" );
-        templates.add("/templates/mapper.java.vm" );
+        templates.add("/templates/controller.java.vm");
+        templates.add("/templates/service.java.vm");
+        templates.add("/templates/serviceImpl.java.vm");
+        templates.add("/templates/mapper.java.vm");
         templates.add("templates/entity.java.vm");
         templates.add("templates/mapper.xml.vm");
         return templates;
     }
 
 
-    public static void generatorCode(TableVO tableInfo, List<ColumnInfo> columnInfoList, GeneratorConfig config,
+    public static void generatorCode(TableVO tableInfo, List<ColumnInfo> columnInfoList, Map<String, Object> config,
                                      ZipOutputStream zip) {
         ColumnInfo pk = new ColumnInfo();
         String tableName = tableInfo.getTableName();
         String className = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, tableName);
         String classname = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, tableName);
         List<ColumnInfo> columnInfos = parseColumnInfo(columnInfoList, pk);
-        String packageName = config.getPackageName();
-        String moduleName = config.getModuleName();
+        String packageName = (String) config.get("packageName");
+        String moduleName = (String) config.get("moduleName");
         //封装参数,表信息
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("packageName", packageName);
