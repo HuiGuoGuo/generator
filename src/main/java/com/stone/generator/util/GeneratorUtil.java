@@ -2,7 +2,6 @@ package com.stone.generator.util;
 
 import com.google.common.base.CaseFormat;
 import com.google.common.base.Charsets;
-import com.stone.generator.config.GeneratorConfig;
 import com.stone.generator.pojo.info.ColumnInfo;
 import com.stone.generator.pojo.vo.TableVO;
 import org.apache.commons.io.IOUtils;

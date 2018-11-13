@@ -10,11 +10,8 @@ public class GeneratorApplicationTests {
 
     @Test
     public void test()  throws Exception{
-        Class clazz = Class.forName("com.stone.generator.util.JDBCTypesUtils");
-        Object o = clazz.newInstance();
-        Method method = clazz.getMethod("getJdbcCode",String.class);
-        Object result = method.invoke(o, "int");
-        System.out.println(result);
+        String format = String.format("attachment; filename=%s%s", System.currentTimeMillis(), ".xlsx");
+        System.out.println(format);
 //        System.out.println(anInt);
     }
 }

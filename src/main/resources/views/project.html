@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="index.html">代码生成</a></li>
+                <li role="presentation" class="active"><a href="#">项目生成</a></li>
+                <li role="presentation"><a href="#">Messages</a></li>
+            </ul>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-9">
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>温馨提醒:</strong> 生成的实体类名为表名转驼峰.
+            </div>
+            <div class="col-xs-12">
+                请输入GroupId: <input type="text" class="form-control" name="groupId" placeholder="com.stone.example">
+            </div>
+            <div class="col-xs-12">
+                请输入ArtifactId: <input type="text" class="form-control" name="artifactId" placeholder="example">
+            </div>
+            <div class="col-xs-12">
+                请输入Version: <input type="text" class="form-control" name="version" placeholder="1.0-SNAPSHOT">
+            </div>
+            <div class="col-xs-12">
+                请输入项目名: <input type="text" class="form-control" name="projectName">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $("input[name='artifactId']").on('change', function () {
+        console.log($(this).val());
+        $("input[name='projectName']").val($(this).val());
+    })
+</script>
+</body>
+</html>
