@@ -8,5 +8,6 @@ import com.stone.generator.pojo.info.GeneratorInfo;
  */
 public interface GeneratorAdapter extends Generator {
 
+
     void generatorCode(GeneratorInfo info);
 }
