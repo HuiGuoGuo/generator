@@ -4,10 +4,11 @@ var pageSize = 12;
 var currpage = 1;
 
 function generator(tableName) {
-    var packageName = $('input[name=packageName]').val();
-    var moduleName = $('input[name=moduleName]').val();
-    window.location.href = 'sys/generator/' + tableName + '?packageName=' + packageName + '&moduleName=' + moduleName;
+    var packageName = $('input[name=groupId]').val();
+    var moduleName = $('input[name=artifactId]').val();
+    window.location.href = 'sys/generator/' + tableName + '?groupId=' + packageName + '&artifactId=' + moduleName;
 }
+
 $(function () {
 
     getData()
@@ -48,7 +49,7 @@ $(function () {
                             '<td class="col-md-1">' + datas[i].engine + '</td>' +
                             '<td class="col-md-6">' + datas[i].tableComment + '</td>' +
                             '<td class="col-md-2">' + datas[i].createTime + '</td>' +
-                            '<td class="col-md-1"><a href="javascript:generator(\''+ datas[i].tableName + '\');" class="btn btn-info">生成代码</a></td>' +
+                            '<td class="col-md-1"><a href="javascript:generator(\'' + datas[i].tableName + '\');" class="btn btn-info">生成代码</a></td>' +
                             '</tr>')
                     }
                 }
@@ -57,6 +58,8 @@ $(function () {
     }
 
 })
+
+
 
 
 

@@ -24,7 +24,7 @@
             <div class="alert alert-info alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <strong>温馨提醒:</strong> 生成的实体类名为表名转驼峰.
+                <strong>温馨提醒:</strong> 默认代码结构为七层,springboot,mybatis.
             </div>
             <div class="col-xs-12">
                 请输入GroupId: <input type="text" class="form-control" name="groupId" placeholder="com.stone.example">
@@ -36,19 +36,21 @@
                 请输入Version: <input type="text" class="form-control" name="version" placeholder="1.0-SNAPSHOT">
             </div>
             <div class="col-xs-12">
-                请输入项目名: <input type="text" class="form-control" name="projectName">
+                请输入项目名: <input type="text" class="form-control" name="moduleName">
+            </div>
+            <br>
+            <div class="col-xs-1">
+                <button type="button" class="btn btn-success btn-md" onclick="generatorProject()">
+                    生成项目
+                </button>
             </div>
         </div>
     </div>
 </div>
 
 <script src="js/jquery.min.js"></script>
+<script src="js/project.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script>
-    $("input[name='artifactId']").on('change', function () {
-        console.log($(this).val());
-        $("input[name='projectName']").val($(this).val());
-    })
-</script>
+
 </body>
 </html>

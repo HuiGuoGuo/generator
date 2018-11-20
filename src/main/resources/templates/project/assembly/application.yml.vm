@@ -1,0 +1,76 @@
+#generator by @${author} on ${date}
+server:
+  tomcat:
+    max-threads: 10
+    min-spare-threads: 10
+    uri-encoding: UTF-8
+spring:
+  profiles:
+    active: test
+
+  output:
+    ansi:
+      enabled: always
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  datasource:
+    druid:
+      #druid WebStatFilter监控配置
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+      #druid StatViewServlet监控配置
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: wanghui
+        login-password: wanghui100200
+      max-active: 5
+  http:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      enabled: true
+  application:
+    name: ${module-name}
+
+#mybatis
+mybatis:
+  configLocation:  classpath:mybatis/mybatis-config.xml
+  mapperLocations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: ${package-name}.${module-name}.persist.mybatis.model
+
+
+#logging config
+logging:
+##  config: classpath:config/${spring.profiles.active}/logback.xml
+  level:
+    ${package-name}.${module-name-lower}.persist: debug
+
+
+#advise Expression
+advise:
+  expression: execution (* ${package-name}.${module-name-lower}.adapter..*.*(..))
+rest:
+  api:
+    pack: ${package-name}.${module-name-lower}
+    title:
+    name: WH
+    version: 1.0
+    contact-user: WH
+    contact-email: wanghui@xyd.cn
+
+info:
+  app.name: ${spring.application.name}
+  company.name: XYD
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
+    status-page-url-path: /monitor/info
+

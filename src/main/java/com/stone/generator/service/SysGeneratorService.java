@@ -1,12 +1,18 @@
 package com.stone.generator.service;
 
+import com.stone.generator.adapter.ProjectGenerator;
+import com.stone.generator.pojo.info.GeneratorInfo;
+import com.stone.generator.pojo.info.ProjectInfo;
+import com.stone.generator.pojo.request.GeneratorProjectRequestDTO;
 import com.stone.generator.util.GeneratorUtil;
 import com.stone.generator.config.GeneratorConfig;
 import com.stone.generator.dao.SysGeneratorDao;
 import com.stone.generator.pojo.ResultBean;
 import com.stone.generator.pojo.info.ColumnInfo;
 import com.stone.generator.pojo.vo.TableVO;
+import com.stone.generator.util.CamelUtil;
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +28,8 @@ import static com.stone.generator.pojo.ResultBean.SUCCESS_MESSAGE;
  * Created by Stone on 2018/7/27.
  */
 @Service
-public class SysGeneratorService {
+public class SysGeneratorService extends ProjectGenerator {
+
 
     @Autowired
     private GeneratorConfig config;
@@ -55,11 +62,19 @@ public class SysGeneratorService {
         return outputStream.toByteArray();
     }
 
-
-
-
-
-
+    public byte[] downloadProject(GeneratorProjectRequestDTO requestDTO) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ZipOutputStream zip = new ZipOutputStream(outputStream);
+        GeneratorInfo<ProjectInfo> generatorInfo = new GeneratorInfo<>();
+        ProjectInfo projectInfo = new ProjectInfo();
+        BeanUtils.copyProperties(requestDTO, projectInfo);
+        projectInfo.setModuleNameUp(CamelUtil.castUpper(requestDTO.getModuleName()));
+        projectInfo.setModuleNameLow(CamelUtil.castLower(requestDTO.getModuleName()));
+        generatorInfo.setOutputStream(zip).setInfo(projectInfo);
+        this.generatorCode(generatorInfo);
+        IOUtils.closeQuietly(zip);
+        return outputStream.toByteArray();
+    }
 
 
 }

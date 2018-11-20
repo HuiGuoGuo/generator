@@ -1,0 +1,24 @@
+package ${package-name}.${module-name-lower};
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import tk.mybatis.spring.annotation.MapperScan;
+
+/**
+ *  generator by @${author} on ${date}
+ */
+
+
+//@EnableEurekaClient
+@ServletComponentScan
+@EnableTransactionManagement
+@MapperScan(basePackages = {"${package-name}.${module-name-lower}.persist.mybatis.mapper"})
+@SpringBootApplication(scanBasePackages = {"${package-name}.${module-name-lower}", "com.stone.springboot.springbootswaggerstarter"})
+public class ${module-name-up}Application {
+    public static void main(String[] args) {
+        SpringApplication.run(new Object[]{${module-name-up}Application.class}, args);
+    }
+}

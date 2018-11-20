@@ -1,5 +1,6 @@
 package com.stone.generator.control;
 
+import com.stone.generator.pojo.request.GeneratorProjectRequestDTO;
 import com.stone.generator.pojo.request.GeneratorRequestDTO;
 import com.stone.generator.service.SysGeneratorService;
 import com.stone.generator.pojo.Query;
@@ -49,12 +50,24 @@ public class SysGeneratorController {
     public void download(@PathVariable("tableName") String tableName, GeneratorRequestDTO requestDTO, HttpServletResponse response) {
         Query query = new Query();
         query.put("tableName", tableName);
-        query.put("packageName",requestDTO.getPackageName());
-        query.put("moduleName",requestDTO.getModuleName());
+        query.put("groupId",requestDTO.getPackageName());
+        query.put("artifactId",requestDTO.getModuleName());
         byte[] data = sysGeneratorService.download(query);
         @Cleanup OutputStream outputStream = response.getOutputStream();
         response.reset();
         response.setHeader("Content-Disposition", String.format("attachment; filename=%s.zip", tableName));
+        response.addHeader("Content-Length", String.format("%s", data.length));
+        response.setContentType("application/octet-stream; charset=UTF-8");
+        IOUtils.write(data, outputStream);
+    }
+
+    @SneakyThrows
+    @GetMapping(value = "/project")
+    public void downloadProject(GeneratorProjectRequestDTO requestDTO,HttpServletResponse response) {
+        byte[] data = sysGeneratorService.downloadProject(requestDTO);
+        @Cleanup OutputStream outputStream = response.getOutputStream();
+        response.reset();
+        response.setHeader("Content-Disposition", String.format("attachment; filename=%s.zip", requestDTO.getModuleName()));
         response.addHeader("Content-Length", String.format("%s", data.length));
         response.setContentType("application/octet-stream; charset=UTF-8");
         IOUtils.write(data, outputStream);

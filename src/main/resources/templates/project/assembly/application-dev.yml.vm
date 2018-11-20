@@ -1,0 +1,24 @@
+#generator by @${author} on ${date}
+server:
+  port: 8080
+#spring config
+spring:
+  datasource:
+    username:
+    password:
+    url: jdbc:mysql://?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host:
+    port: 6379
+    pool:
+      max-active: 8
+      max-wait: 1
+      min-idle: 0
+    timeout: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone:
