@@ -15,8 +15,10 @@ springboot , mybatis
 
 #### 使用说明
 
-1. xxxx
-2. xxxx
+1. Mybatis代码生成如下
+![Mybatis代码生成](https://images.gitee.com/uploads/images/2018/1121/095710_c0f27737_741561.png "屏幕快照 2018-11-21 上午9.54.35.png")
+2. 代码框架构建如下
+![代码框架构建](https://images.gitee.com/uploads/images/2018/1121/100624_e085697c_741561.png "QQ20181121-100601@2x.png")
 3. xxxx
 
 #### 参与贡献
