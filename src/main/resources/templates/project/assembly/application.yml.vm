@@ -57,14 +57,13 @@ rest:
   api:
     pack: ${package-name}.${module-name-lower}
     title:
-    name: WH
+    name: stone
     version: 1.0
-    contact-user: WH
-    contact-email: wanghui@xyd.cn
+    contact-user: stone
 
 info:
   app.name: ${spring.application.name}
-  company.name: XYD
+  company.name: company
   build.artifactId: $project.artifactId$
   build.version: $project.version$
 
